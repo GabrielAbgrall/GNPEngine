@@ -30,7 +30,7 @@ public class GameOfLife extends GameObject{
         this.gridSize = gridSize;
         this.cellSize = cellSize;
         this.alivePercentage = alivePercentage;
-        this.mesh = new BufferedImage(gridSize.x, gridSize.y, BufferedImage.TYPE_4BYTE_ABGR);
+        this.mesh = new BufferedImage(gridSize.x*cellSize, gridSize.y*cellSize, BufferedImage.TYPE_4BYTE_ABGR);
     }
 
     public void init() {
@@ -60,10 +60,12 @@ public class GameOfLife extends GameObject{
 
         for (int x = -1; x < 2; x++) {
             for (int y = -1; y < 2; y++) {
-                Vector2 dpos = new Vector2();
-                dpos.x = (pos.x + x) % gridSize.x;
-                dpos.y = (pos.y + y) % gridSize.y;
-                if(grid.get(dpos).isAlive()) result++;
+                if(x!= 0 || y!=0){
+                    Vector2 dpos = new Vector2();
+                    dpos.x = ((pos.x + x) % gridSize.x + gridSize.x) % gridSize.x;
+                    dpos.y = ((pos.y + y) % gridSize.y + gridSize.y) % gridSize.y;
+                    if(grid.get(dpos).isAlive()) result++;
+                }
             }
         }
 
@@ -72,9 +74,6 @@ public class GameOfLife extends GameObject{
 
     @Override
     public void updateMesh() {
-        for (Map.Entry<Vector2, Cell> e : grid.entrySet()) {
-
-        }
         grid.forEach((pos, cell) -> {
             Graphics2D g2d = (Graphics2D) mesh.getGraphics();
             g2d.setColor(cell.isAlive()?Color.WHITE:Color.BLACK);
@@ -98,9 +97,11 @@ public class GameOfLife extends GameObject{
 
         GameOfLife gameOfLife = new GameOfLife(
                 new Vector2(100, 100),
-                3,
+                5,
                 50
         );
+
+        gameOfLife.init();
 
         engine.getPhysicsEngine().addGameObject(gameOfLife);
         engine.getRenderingEngine().addDisplayable(gameOfLife);

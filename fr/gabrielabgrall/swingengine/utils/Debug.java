@@ -12,11 +12,11 @@ public class Debug {
         log("Debug | Set debug level : " + level);
     }
 
-    public static void log(String log, int level) {
+    public static void log(Object log, int level) {
         if(shouldDebug(level)) System.out.println("[DEBUG] " + LocalDateTime.now().format(DateTimeFormatter.ISO_TIME).substring(0, 8) + " | " + log);
     }
 
-    public static void log(String log) {
+    public static void log(Object log) {
         log(log, 1);
     }
 
