@@ -1,5 +1,6 @@
-package fr.gabrielabgrall.swingengine.engine;
+package fr.gabrielabgrall.swingengine;
 
+import fr.gabrielabgrall.swingengine.gameobject.GameObject;
 import fr.gabrielabgrall.swingengine.utils.Debug;
 
 import java.util.ArrayList;

@@ -1,8 +1,8 @@
 package fr.gabrielabgrall.swingengine.demo.maze;
 
-import fr.gabrielabgrall.swingengine.engine.GameObject;
+import fr.gabrielabgrall.swingengine.gameobject.GameObject;
 import fr.gabrielabgrall.swingengine.utils.Debug;
-import fr.gabrielabgrall.swingengine.engine.Vector2;
+import fr.gabrielabgrall.swingengine.utils.Vector2;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;

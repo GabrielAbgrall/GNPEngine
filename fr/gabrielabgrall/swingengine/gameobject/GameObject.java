@@ -1,4 +1,6 @@
-package fr.gabrielabgrall.swingengine.engine;
+package fr.gabrielabgrall.swingengine.gameobject;
+
+import fr.gabrielabgrall.swingengine.utils.Vector2;
 
 import java.awt.*;
 

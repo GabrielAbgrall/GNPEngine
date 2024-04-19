@@ -1,5 +1,8 @@
-package fr.gabrielabgrall.swingengine.engine;
+package fr.gabrielabgrall.swingengine;
 
+import fr.gabrielabgrall.swingengine.utils.Vector2;
+import fr.gabrielabgrall.swingengine.gameobject.Camera;
+import fr.gabrielabgrall.swingengine.gameobject.GameObject;
 import fr.gabrielabgrall.swingengine.utils.Debug;
 
 import javax.swing.*;

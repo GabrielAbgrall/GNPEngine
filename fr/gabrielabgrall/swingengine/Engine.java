@@ -1,4 +1,4 @@
-package fr.gabrielabgrall.swingengine.engine;
+package fr.gabrielabgrall.swingengine;
 
 public class Engine {
 
