@@ -1,8 +1,6 @@
 package fr.gabrielabgrall.swingengine.demo.gameoflife;
 
 import fr.gabrielabgrall.swingengine.Engine;
-import fr.gabrielabgrall.swingengine.demo.maze.AStar;
-import fr.gabrielabgrall.swingengine.demo.maze.Maze;
 import fr.gabrielabgrall.swingengine.gameobject.Camera;
 import fr.gabrielabgrall.swingengine.gameobject.GameObject;
 import fr.gabrielabgrall.swingengine.utils.Debug;
@@ -96,8 +94,8 @@ public class GameOfLife extends GameObject{
         ));
 
         GameOfLife gameOfLife = new GameOfLife(
-                new Vector2(100, 100),
-                5,
+                new Vector2(250, 250),
+                2,
                 50
         );
 
