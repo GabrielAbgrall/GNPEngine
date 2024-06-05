@@ -1,8 +1,8 @@
-package fr.gabrielabgrall.engine.demo.maze;
+package fr.gabrielabgrall.javaengine.demo.maze;
 
-import fr.gabrielabgrall.engine.gameobject.GameObject;
-import fr.gabrielabgrall.engine.utils.Debug;
-import fr.gabrielabgrall.engine.utils.Vector2;
+import fr.gabrielabgrall.javaengine.gameobject.GameObject;
+import fr.gabrielabgrall.javaengine.utils.Debug;
+import fr.gabrielabgrall.javaengine.utils.Vector2;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
