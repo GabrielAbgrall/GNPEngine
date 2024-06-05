@@ -1,6 +1,6 @@
-package fr.gabrielabgrall.swingengine.gameobject;
+package fr.gabrielabgrall.engine.gameobject;
 
-import fr.gabrielabgrall.swingengine.utils.Vector2;
+import fr.gabrielabgrall.engine.utils.Vector2;
 
 import java.awt.*;
 
@@ -8,10 +8,12 @@ public class GameObject {
 
     protected Vector2 position;
     protected Image mesh;
+    protected boolean hidden;
 
     public GameObject(Vector2 position, Image mesh) {
         this.position = position;
         this.mesh = mesh;
+        this.hidden = false;
     }
 
     public GameObject(Vector2 position) {this(position, null);}
@@ -42,5 +44,13 @@ public class GameObject {
 
     public void move(Vector2 movement) {
         this.position = this.position.add(movement);
+    }
+
+    public void setHidden(boolean hidden) {
+        this.hidden = hidden;
+    }
+
+    public boolean isHidden() {
+        return hidden;
     }
 }

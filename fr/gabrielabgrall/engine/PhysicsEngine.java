@@ -1,9 +1,8 @@
-package fr.gabrielabgrall.swingengine;
+package fr.gabrielabgrall.engine;
 
-import fr.gabrielabgrall.swingengine.gameobject.GameObject;
-import fr.gabrielabgrall.swingengine.utils.Debug;
+import fr.gabrielabgrall.engine.gameobject.GameObject;
+import fr.gabrielabgrall.engine.utils.Debug;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class PhysicsEngine extends Thread {
@@ -11,10 +10,13 @@ public class PhysicsEngine extends Thread {
     protected boolean running = true;
     protected double ups;
     protected long elapsed;
-    private final List<GameObject> gameObjects = new ArrayList<>();
+    private final List<GameObject> gameObjects;
 
-    protected PhysicsEngine(double ups) {
+    protected PhysicsEngine(double ups, List<GameObject> gameObjects) throws IllegalArgumentException {
+        if(ups < 0) throw new IllegalArgumentException("UPS must be a positive number");
+
         this.ups = ups;
+        this.gameObjects = gameObjects;
     }
 
     @Override
@@ -51,9 +53,5 @@ public class PhysicsEngine extends Thread {
 
     public double getUps() {
         return ups;
-    }
-
-    public void addGameObject(GameObject gameObject) {
-        this.gameObjects.add(gameObject);
     }
 }

@@ -1,10 +1,10 @@
-package fr.gabrielabgrall.swingengine.demo.maze;
+package fr.gabrielabgrall.engine.demo.maze;
 
-import fr.gabrielabgrall.swingengine.gameobject.Camera;
-import fr.gabrielabgrall.swingengine.Engine;
-import fr.gabrielabgrall.swingengine.gameobject.GameObject;
-import fr.gabrielabgrall.swingengine.utils.Debug;
-import fr.gabrielabgrall.swingengine.utils.Vector2;
+import fr.gabrielabgrall.engine.gameobject.Camera;
+import fr.gabrielabgrall.engine.Engine;
+import fr.gabrielabgrall.engine.gameobject.GameObject;
+import fr.gabrielabgrall.engine.utils.Debug;
+import fr.gabrielabgrall.engine.utils.Vector2;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -34,8 +34,8 @@ public class Maze extends GameObject {
     private final Map<Vector2, Node> nodes = new HashMap<>();
     private final Queue<Node> updated = new ConcurrentLinkedQueue<>();
 
-    public Maze(int size, int cellSize) throws Exception {
-        if (size % 2 == 0) throw new Exception("Maze size should be an odd number");
+    public Maze(int size, int cellSize) throws IllegalArgumentException {
+        if (size % 2 == 0) throw new IllegalArgumentException("size must be an odd number");
         this.size = size;
         this.cellSize = cellSize;
         this.mesh = new BufferedImage(
@@ -177,7 +177,7 @@ public class Maze extends GameObject {
         }
     }
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) throws IllegalArgumentException {
         Debug.log("Main | Starting");
         Debug.setLevel(1);
 
@@ -188,8 +188,8 @@ public class Maze extends GameObject {
         int width = gd.getDisplayMode().getWidth();
         int height = gd.getDisplayMode().getHeight();
 
-        Engine engine = new Engine(Integer.MAX_VALUE, fps);
-        engine.getRenderingEngine().setCamera(new Camera(
+        Engine engine = new Engine(0, fps);
+        engine.getGraphicsEngine().setCamera(new Camera(
                 new Vector2(0, 0),
                 new Vector2(width, height)
         ));
@@ -197,8 +197,8 @@ public class Maze extends GameObject {
         Maze maze = new Maze(size, 1);
         AStar aStar = new AStar(maze);
 
-        engine.getRenderingEngine().addDisplayable(maze);
-        engine.getRenderingEngine().addDisplayable(aStar);
+        engine.addGameObject(maze);
+        engine.addGameObject(aStar);
 
         engine.start();
 

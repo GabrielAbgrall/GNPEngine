@@ -1,31 +1,33 @@
-package fr.gabrielabgrall.swingengine;
+package fr.gabrielabgrall.engine;
 
-import fr.gabrielabgrall.swingengine.utils.Vector2;
-import fr.gabrielabgrall.swingengine.gameobject.Camera;
-import fr.gabrielabgrall.swingengine.gameobject.GameObject;
-import fr.gabrielabgrall.swingengine.utils.Debug;
+import fr.gabrielabgrall.engine.utils.Vector2;
+import fr.gabrielabgrall.engine.gameobject.Camera;
+import fr.gabrielabgrall.engine.gameobject.GameObject;
+import fr.gabrielabgrall.engine.utils.Debug;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 import java.util.List;
 
-public class RenderingEngine extends Thread{
+public class GraphicsEngine extends Thread{
 
-    public static RenderingEngine instance;
+    public static GraphicsEngine instance;
     protected boolean initialized = false;
     protected boolean running = true;
     protected double fps;
     protected Camera camera;
     protected JFrame frame = new JFrame();
     protected Controller controller = new Controller();
-    protected final List<GameObject> gameObjects = new ArrayList<>();
+    protected final List<GameObject> gameObjects;
 
-    protected RenderingEngine(double fps) {
+    protected GraphicsEngine(double fps, List<GameObject> gameObjects) throws IllegalArgumentException {
+        if (fps < 0) throw new IllegalArgumentException("FPS must be a positive number");
+
         this.fps = fps;
+        this.gameObjects = gameObjects;
     }
 
     public void init() {
@@ -70,13 +72,15 @@ public class RenderingEngine extends Thread{
         BufferedImage surface = new BufferedImage(camera.getDimensions().x, camera.getDimensions().y, BufferedImage.TYPE_INT_ARGB);
 
         gameObjects.forEach(gameObject -> {
-            gameObject.updateMesh();
-            surface.getGraphics().drawImage(
-                    gameObject.getMesh(),
-                    gameObject.getPosition().x - camera.getPosition().x,
-                    gameObject.getPosition().y - camera.getPosition().y,
-                    null
-            );
+            if(!gameObject.isHidden()) {
+                gameObject.updateMesh();
+                surface.getGraphics().drawImage(
+                        gameObject.getMesh(),
+                        gameObject.getPosition().x - camera.getPosition().x,
+                        gameObject.getPosition().y - camera.getPosition().y,
+                        null
+                );
+            }
         });
 
         controller.updateSurface(surface);
@@ -89,20 +93,12 @@ public class RenderingEngine extends Thread{
         controller.repaint();
     }
 
-    public void addDisplayable(GameObject gameObject) {
-        this.gameObjects.add(gameObject);
-    }
-
     public Camera getCamera() {
         return camera;
     }
 
     public void setCamera(Camera camera) {
         this.camera = camera;
-    }
-
-    public JFrame getFrame() {
-        return frame;
     }
 
     public static class Controller extends JPanel implements MouseMotionListener {

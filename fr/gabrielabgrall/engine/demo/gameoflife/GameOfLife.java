@@ -1,10 +1,10 @@
-package fr.gabrielabgrall.swingengine.demo.gameoflife;
+package fr.gabrielabgrall.engine.demo.gameoflife;
 
-import fr.gabrielabgrall.swingengine.Engine;
-import fr.gabrielabgrall.swingengine.gameobject.Camera;
-import fr.gabrielabgrall.swingengine.gameobject.GameObject;
-import fr.gabrielabgrall.swingengine.utils.Debug;
-import fr.gabrielabgrall.swingengine.utils.Vector2;
+import fr.gabrielabgrall.engine.Engine;
+import fr.gabrielabgrall.engine.gameobject.Camera;
+import fr.gabrielabgrall.engine.gameobject.GameObject;
+import fr.gabrielabgrall.engine.utils.Debug;
+import fr.gabrielabgrall.engine.utils.Vector2;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -79,7 +79,7 @@ public class GameOfLife extends GameObject{
         });
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IllegalArgumentException {
         Debug.log("Main | Starting");
         Debug.setLevel(1);
 
@@ -88,21 +88,20 @@ public class GameOfLife extends GameObject{
         int height = gd.getDisplayMode().getHeight();
 
         Engine engine = new Engine(20, 60);
-        engine.getRenderingEngine().setCamera(new Camera(
+        engine.getGraphicsEngine().setCamera(new Camera(
                 new Vector2(0, 0),
                 new Vector2(width, height)
         ));
 
         GameOfLife gameOfLife = new GameOfLife(
                 new Vector2(250, 250),
-                2,
+                10,
                 50
         );
 
         gameOfLife.init();
 
-        engine.getPhysicsEngine().addGameObject(gameOfLife);
-        engine.getRenderingEngine().addDisplayable(gameOfLife);
+        engine.addGameObject(gameOfLife);
 
         engine.start();
 
