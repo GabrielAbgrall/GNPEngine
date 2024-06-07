@@ -23,6 +23,11 @@ public class JavaEngine {
         physicsEngine.start();
     }
 
+    public void stop() {
+        graphicsEngine.running = false;
+        physicsEngine.running = false;
+    }
+
     public void addGameObject(GameObject gameObject) {
         this.gameObjects.add(gameObject);
     }

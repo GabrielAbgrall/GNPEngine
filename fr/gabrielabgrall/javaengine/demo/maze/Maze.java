@@ -177,7 +177,7 @@ public class Maze extends GameObject {
         }
     }
 
-    public static void main(String[] args) throws IllegalArgumentException {
+    public static void main(String[] args) throws IllegalArgumentException, InterruptedException {
         Debug.log("Main | Starting");
         Debug.setLevel(1);
 
@@ -194,7 +194,7 @@ public class Maze extends GameObject {
                 new Vector2(width, height)
         ));
 
-        Maze maze = new Maze(size, 1);
+        Maze maze = new Maze(size, 2);
         AStar aStar = new AStar(maze);
 
         engine.addGameObject(maze);

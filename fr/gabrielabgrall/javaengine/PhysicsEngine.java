@@ -1,6 +1,7 @@
 package fr.gabrielabgrall.javaengine;
 
 import fr.gabrielabgrall.javaengine.gameobject.GameObject;
+import fr.gabrielabgrall.javaengine.utils.Clock;
 import fr.gabrielabgrall.javaengine.utils.Debug;
 
 import java.util.List;
@@ -21,23 +22,10 @@ public class PhysicsEngine extends Thread {
 
     @Override
     public void run() {
-        long last = 0;
-        int count = 0;
+        Clock clock = new Clock("PhysicsEngine");
         while(running) {
-            long start = System.currentTimeMillis();
             update();
-            try {
-                long elapsed = System.currentTimeMillis() - start;
-                Thread.sleep((long)(1000/ups) - elapsed);
-            } catch (Exception ignored) {
-            }
-            last += System.currentTimeMillis() - start;
-            count++;
-            if(last/1000 >= 1) {
-                Debug.log("PhysicsEngine | " + count + " ups", 2);
-                last = 0;
-                count = 0;
-            }
+            clock.tick(ups);
         }
     }
 

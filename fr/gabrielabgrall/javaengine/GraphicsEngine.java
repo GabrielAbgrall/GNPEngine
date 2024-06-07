@@ -1,5 +1,6 @@
 package fr.gabrielabgrall.javaengine;
 
+import fr.gabrielabgrall.javaengine.utils.Clock;
 import fr.gabrielabgrall.javaengine.utils.Vector2;
 import fr.gabrielabgrall.javaengine.gameobject.Camera;
 import fr.gabrielabgrall.javaengine.gameobject.GameObject;
@@ -44,25 +45,12 @@ public class GraphicsEngine extends Thread{
     public void run() {
         instance = this;
 
-        long last = 0;
-        int count = 0;
-
         init();
+        Clock clock = new Clock("GraphicsEngine");
 
         while(running) {
-            long start = System.currentTimeMillis();
             display();
-            try {
-                Thread.sleep((long)(1000/fps) - (System.currentTimeMillis() - start));
-            } catch (Exception ignored) {
-            }
-            last += System.currentTimeMillis() - start;
-            count++;
-            if(last/1000 >= 1) {
-                Debug.log("PhysicsEngine | " + count + " fps", 2);
-                last = 0;
-                count = 0;
-            }
+            clock.tick(fps);
         }
     }
 

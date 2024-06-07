@@ -79,7 +79,7 @@ public class GameOfLife extends GameObject{
         });
     }
 
-    public static void main(String[] args) throws IllegalArgumentException {
+    public static void main(String[] args) throws IllegalArgumentException, InterruptedException {
         Debug.log("Main | Starting");
         Debug.setLevel(1);
 
@@ -94,7 +94,7 @@ public class GameOfLife extends GameObject{
         ));
 
         GameOfLife gameOfLife = new GameOfLife(
-                new Vector2(250, 250),
+                new Vector2(10, 10),
                 10,
                 50
         );
