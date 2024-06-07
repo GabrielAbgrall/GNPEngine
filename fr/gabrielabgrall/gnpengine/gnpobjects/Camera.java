@@ -16,7 +16,7 @@ public class Camera extends GNPObject {
         return dimensions;
     }
 
-    public void setDimensions(Vector2 dimensions) {
+    public void resize(Vector2 dimensions) {
         this.resized = true;
         this.dimensions = dimensions;
     }
