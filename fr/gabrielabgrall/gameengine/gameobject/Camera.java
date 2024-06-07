@@ -1,6 +1,6 @@
-package fr.gabrielabgrall.javaengine.gameobject;
+package fr.gabrielabgrall.gameengine.gameobject;
 
-import fr.gabrielabgrall.javaengine.utils.Vector2;
+import fr.gabrielabgrall.gameengine.utils.Vector2;
 
 public class Camera extends GameObject {
 

@@ -1,8 +1,7 @@
-package fr.gabrielabgrall.javaengine;
+package fr.gabrielabgrall.gameengine;
 
-import fr.gabrielabgrall.javaengine.gameobject.GameObject;
-import fr.gabrielabgrall.javaengine.utils.Clock;
-import fr.gabrielabgrall.javaengine.utils.Debug;
+import fr.gabrielabgrall.gameengine.gameobject.GameObject;
+import fr.gabrielabgrall.gameengine.utils.Clock;
 
 import java.util.List;
 

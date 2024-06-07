@@ -1,19 +1,19 @@
-package fr.gabrielabgrall.javaengine;
+package fr.gabrielabgrall.gameengine;
 
-import fr.gabrielabgrall.javaengine.gameobject.GameObject;
+import fr.gabrielabgrall.gameengine.gameobject.GameObject;
 
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class JavaEngine {
+public class GameEngine {
 
     protected final List<GameObject> gameObjects = new ArrayList<>();
 
     protected PhysicsEngine physicsEngine;
     protected GraphicsEngine graphicsEngine;
 
-    public JavaEngine(double ups, double fps) throws IllegalArgumentException {
+    public GameEngine(double ups, double fps) throws IllegalArgumentException {
         this.physicsEngine = new PhysicsEngine(ups, gameObjects);
         this.graphicsEngine = new GraphicsEngine(fps, gameObjects);
     }

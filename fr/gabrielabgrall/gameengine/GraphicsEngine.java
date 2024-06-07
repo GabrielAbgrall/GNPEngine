@@ -1,10 +1,9 @@
-package fr.gabrielabgrall.javaengine;
+package fr.gabrielabgrall.gameengine;
 
-import fr.gabrielabgrall.javaengine.utils.Clock;
-import fr.gabrielabgrall.javaengine.utils.Vector2;
-import fr.gabrielabgrall.javaengine.gameobject.Camera;
-import fr.gabrielabgrall.javaengine.gameobject.GameObject;
-import fr.gabrielabgrall.javaengine.utils.Debug;
+import fr.gabrielabgrall.gameengine.utils.Clock;
+import fr.gabrielabgrall.gameengine.utils.Vector2;
+import fr.gabrielabgrall.gameengine.gameobject.Camera;
+import fr.gabrielabgrall.gameengine.gameobject.GameObject;
 
 import javax.swing.*;
 import java.awt.*;

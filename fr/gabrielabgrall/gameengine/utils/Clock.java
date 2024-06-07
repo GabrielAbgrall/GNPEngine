@@ -1,4 +1,4 @@
-package fr.gabrielabgrall.javaengine.utils;
+package fr.gabrielabgrall.gameengine.utils;
 
 public class Clock {
 

@@ -1,4 +1,4 @@
-package fr.gabrielabgrall.javaengine.utils;
+package fr.gabrielabgrall.gameengine.utils;
 
 import java.util.Objects;
 

@@ -1,10 +1,10 @@
-package fr.gabrielabgrall.javaengine.demo.maze;
+package fr.gabrielabgrall.gameengine.demo.maze;
 
-import fr.gabrielabgrall.javaengine.gameobject.Camera;
-import fr.gabrielabgrall.javaengine.JavaEngine;
-import fr.gabrielabgrall.javaengine.gameobject.GameObject;
-import fr.gabrielabgrall.javaengine.utils.Debug;
-import fr.gabrielabgrall.javaengine.utils.Vector2;
+import fr.gabrielabgrall.gameengine.gameobject.Camera;
+import fr.gabrielabgrall.gameengine.GameEngine;
+import fr.gabrielabgrall.gameengine.gameobject.GameObject;
+import fr.gabrielabgrall.gameengine.utils.Debug;
+import fr.gabrielabgrall.gameengine.utils.Vector2;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -188,7 +188,7 @@ public class Maze extends GameObject {
         int width = gd.getDisplayMode().getWidth();
         int height = gd.getDisplayMode().getHeight();
 
-        JavaEngine engine = new JavaEngine(0, fps);
+        GameEngine engine = new GameEngine(0, fps);
         engine.getGraphicsEngine().setCamera(new Camera(
                 new Vector2(0, 0),
                 new Vector2(width, height)
