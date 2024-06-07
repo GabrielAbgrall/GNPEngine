@@ -1,7 +1,6 @@
 package fr.gabrielabgrall.gnpengine;
 
 import fr.gabrielabgrall.gnpengine.utils.Clock;
-import fr.gabrielabgrall.gnpengine.utils.Debug;
 import fr.gabrielabgrall.gnpengine.utils.Vector2;
 import fr.gabrielabgrall.gnpengine.gnpobjects.Camera;
 import fr.gabrielabgrall.gnpengine.gnpobjects.GNPObject;
