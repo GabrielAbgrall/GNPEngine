@@ -20,7 +20,7 @@ public class GNPObject {
 
     public GNPObject() {this(new Vector2(0, 0), null);}
 
-    public void update(long elapsed) {
+    public void update(double deltaTime) {
     }
 
     public void updateMesh(){

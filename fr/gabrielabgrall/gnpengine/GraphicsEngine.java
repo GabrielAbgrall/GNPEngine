@@ -39,6 +39,11 @@ public class GraphicsEngine extends Thread{
         initialized = true;
     }
 
+    public void clean() {
+        frame.dispose();
+        initialized = false;
+    }
+
     @Override
     public void run() {
         instance = this;

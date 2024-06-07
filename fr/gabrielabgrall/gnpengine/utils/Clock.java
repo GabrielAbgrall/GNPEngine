@@ -5,6 +5,7 @@ public class Clock {
     protected String name;
     protected long lastMean, clockCount;
     protected long clockStart, clockEnd;
+    protected double deltaTime;
 
     public Clock(String name) {
         this.name = name;
@@ -17,7 +18,9 @@ public class Clock {
     public void tick(double frequency) {
         clockStart = System.currentTimeMillis();
         if (clockEnd==0) clockEnd = clockStart;
-        long sleepDuration = (long) (1000/frequency) - (clockStart-clockEnd);
+
+        long elapsed = clockStart - clockEnd;
+        long sleepDuration = (long) (1000/frequency) - elapsed;
         clockEnd = clockStart + sleepDuration;
 
         try {
@@ -29,6 +32,8 @@ public class Clock {
         clockCount++;
         if(lastMean==0) lastMean = clockStart;
         if((clockStart - lastMean) > 1000) Debug.log(this.name + " | Clock rate : " + getMeanRate() + "/s");
+
+        deltaTime = elapsed + System.currentTimeMillis() - clockStart;
     }
 
     public int getMeanRate() {
@@ -37,5 +42,9 @@ public class Clock {
         clockCount = 0;
         lastMean = 0;
         return mean;
+    }
+
+    public double getDeltaTime() {
+        return deltaTime;
     }
 }

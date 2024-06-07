@@ -8,7 +8,7 @@ import java.util.List;
 public class PhysicsEngine extends Thread {
 
     protected double ups;
-    protected long elapsed;
+    protected double deltaTime;
     private final List<GNPObject> GNPObjects;
 
     protected PhysicsEngine(double ups, List<GNPObject> GNPObjects) throws IllegalArgumentException {
@@ -24,12 +24,16 @@ public class PhysicsEngine extends Thread {
         while(!interrupted()) {
             update();
             clock.tick(ups);
+            deltaTime = clock.getDeltaTime();
         }
+    }
+
+    public void clean() {
     }
 
     protected void update() {
         GNPObjects.forEach(gameObject -> {
-            gameObject.update(elapsed);
+            gameObject.update(deltaTime);
         });
     };
 

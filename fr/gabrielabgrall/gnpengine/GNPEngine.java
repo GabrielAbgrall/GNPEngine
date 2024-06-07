@@ -26,6 +26,8 @@ public class GNPEngine {
     public void stop() {
         graphicsEngine.interrupt();
         physicsEngine.interrupt();
+        graphicsEngine.clean();
+        physicsEngine.clean();
     }
 
     public void addGameObject(GNPObject GNPObject) {
