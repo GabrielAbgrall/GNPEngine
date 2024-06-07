@@ -14,12 +14,11 @@ import java.util.List;
 
 public class GraphicsEngine extends Thread{
 
-    public static GraphicsEngine instance;
     protected boolean initialized = false;
     protected double fps;
     protected Camera camera;
     protected JFrame frame = new JFrame();
-    protected Controller controller = new Controller();
+    protected Controller controller = new Controller(this);
     protected final List<GNPObject> GNPObjects;
 
     protected GraphicsEngine(double fps, List<GNPObject> GNPObjects) throws IllegalArgumentException {
@@ -46,7 +45,6 @@ public class GraphicsEngine extends Thread{
 
     @Override
     public void run() {
-        instance = this;
 
         init();
         Clock clock = new Clock("GraphicsEngine");
@@ -96,8 +94,10 @@ public class GraphicsEngine extends Thread{
 
         private BufferedImage surface;
         private Vector2 lastMousePos;
+        private final GraphicsEngine graphicsEngine;
 
-        public Controller() {
+        public Controller(GraphicsEngine graphicsEngine) {
+            this.graphicsEngine = graphicsEngine;
             addMouseMotionListener(this);
         }
 
@@ -113,12 +113,12 @@ public class GraphicsEngine extends Thread{
 
         @Override
         public Dimension getPreferredSize() {
-            return new Dimension(instance.camera.getDimensions().x, instance.camera.getDimensions().y);
+            return new Dimension(graphicsEngine.camera.getDimensions().x, graphicsEngine.camera.getDimensions().y);
         }
 
         @Override
         public void mouseDragged(MouseEvent e) {
-            instance.camera.move(new Vector2(
+            graphicsEngine.camera.move(new Vector2(
                     lastMousePos.x - e.getX(),
                     lastMousePos.y - e.getY()
             ));
