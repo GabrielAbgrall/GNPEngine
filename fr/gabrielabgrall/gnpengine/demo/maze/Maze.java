@@ -1,10 +1,10 @@
-package fr.gabrielabgrall.gameengine.demo.maze;
+package fr.gabrielabgrall.gnpengine.demo.maze;
 
-import fr.gabrielabgrall.gameengine.gameobject.Camera;
-import fr.gabrielabgrall.gameengine.GameEngine;
-import fr.gabrielabgrall.gameengine.gameobject.GameObject;
-import fr.gabrielabgrall.gameengine.utils.Debug;
-import fr.gabrielabgrall.gameengine.utils.Vector2;
+import fr.gabrielabgrall.gnpengine.gameobject.Camera;
+import fr.gabrielabgrall.gnpengine.GNPEngine;
+import fr.gabrielabgrall.gnpengine.gameobject.GNPObject;
+import fr.gabrielabgrall.gnpengine.utils.Debug;
+import fr.gabrielabgrall.gnpengine.utils.Vector2;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -12,7 +12,7 @@ import java.util.*;
 import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-public class Maze extends GameObject {
+public class Maze extends GNPObject {
 
     public static class Node{
         protected Vector2 pos;
@@ -188,7 +188,7 @@ public class Maze extends GameObject {
         int width = gd.getDisplayMode().getWidth();
         int height = gd.getDisplayMode().getHeight();
 
-        GameEngine engine = new GameEngine(0, fps);
+        GNPEngine engine = new GNPEngine(0, fps);
         engine.getGraphicsEngine().setCamera(new Camera(
                 new Vector2(0, 0),
                 new Vector2(width, height)

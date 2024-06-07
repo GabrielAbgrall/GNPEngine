@@ -1,24 +1,24 @@
-package fr.gabrielabgrall.gameengine.gameobject;
+package fr.gabrielabgrall.gnpengine.gameobject;
 
-import fr.gabrielabgrall.gameengine.utils.Vector2;
+import fr.gabrielabgrall.gnpengine.utils.Vector2;
 
 import java.awt.*;
 
-public class GameObject {
+public class GNPObject {
 
     protected Vector2 position;
     protected Image mesh;
     protected boolean hidden;
 
-    public GameObject(Vector2 position, Image mesh) {
+    public GNPObject(Vector2 position, Image mesh) {
         this.position = position;
         this.mesh = mesh;
         this.hidden = false;
     }
 
-    public GameObject(Vector2 position) {this(position, null);}
+    public GNPObject(Vector2 position) {this(position, null);}
 
-    public GameObject() {this(new Vector2(0, 0), null);}
+    public GNPObject() {this(new Vector2(0, 0), null);}
 
     public void update(long elapsed) {
     }

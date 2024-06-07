@@ -1,8 +1,8 @@
-package fr.gabrielabgrall.gameengine.demo.maze;
+package fr.gabrielabgrall.gnpengine.demo.maze;
 
-import fr.gabrielabgrall.gameengine.gameobject.GameObject;
-import fr.gabrielabgrall.gameengine.utils.Debug;
-import fr.gabrielabgrall.gameengine.utils.Vector2;
+import fr.gabrielabgrall.gnpengine.gameobject.GNPObject;
+import fr.gabrielabgrall.gnpengine.utils.Debug;
+import fr.gabrielabgrall.gnpengine.utils.Vector2;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicLong;
 
-public class AStar extends GameObject {
+public class AStar extends GNPObject {
 
     static class Node {
 

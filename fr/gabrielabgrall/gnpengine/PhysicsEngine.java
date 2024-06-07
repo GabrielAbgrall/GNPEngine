@@ -1,7 +1,7 @@
-package fr.gabrielabgrall.gameengine;
+package fr.gabrielabgrall.gnpengine;
 
-import fr.gabrielabgrall.gameengine.gameobject.GameObject;
-import fr.gabrielabgrall.gameengine.utils.Clock;
+import fr.gabrielabgrall.gnpengine.gameobject.GNPObject;
+import fr.gabrielabgrall.gnpengine.utils.Clock;
 
 import java.util.List;
 
@@ -10,13 +10,13 @@ public class PhysicsEngine extends Thread {
     protected boolean running = true;
     protected double ups;
     protected long elapsed;
-    private final List<GameObject> gameObjects;
+    private final List<GNPObject> GNPObjects;
 
-    protected PhysicsEngine(double ups, List<GameObject> gameObjects) throws IllegalArgumentException {
+    protected PhysicsEngine(double ups, List<GNPObject> GNPObjects) throws IllegalArgumentException {
         if(ups < 0) throw new IllegalArgumentException("UPS must be a positive number");
 
         this.ups = ups;
-        this.gameObjects = gameObjects;
+        this.GNPObjects = GNPObjects;
     }
 
     @Override
@@ -29,7 +29,7 @@ public class PhysicsEngine extends Thread {
     }
 
     protected void update() {
-        gameObjects.forEach(gameObject -> {
+        GNPObjects.forEach(gameObject -> {
             gameObject.update(elapsed);
         });
     };

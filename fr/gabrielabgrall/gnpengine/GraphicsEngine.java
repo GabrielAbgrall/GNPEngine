@@ -1,9 +1,9 @@
-package fr.gabrielabgrall.gameengine;
+package fr.gabrielabgrall.gnpengine;
 
-import fr.gabrielabgrall.gameengine.utils.Clock;
-import fr.gabrielabgrall.gameengine.utils.Vector2;
-import fr.gabrielabgrall.gameengine.gameobject.Camera;
-import fr.gabrielabgrall.gameengine.gameobject.GameObject;
+import fr.gabrielabgrall.gnpengine.utils.Clock;
+import fr.gabrielabgrall.gnpengine.utils.Vector2;
+import fr.gabrielabgrall.gnpengine.gameobject.Camera;
+import fr.gabrielabgrall.gnpengine.gameobject.GNPObject;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,13 +21,13 @@ public class GraphicsEngine extends Thread{
     protected Camera camera;
     protected JFrame frame = new JFrame();
     protected Controller controller = new Controller();
-    protected final List<GameObject> gameObjects;
+    protected final List<GNPObject> GNPObjects;
 
-    protected GraphicsEngine(double fps, List<GameObject> gameObjects) throws IllegalArgumentException {
+    protected GraphicsEngine(double fps, List<GNPObject> GNPObjects) throws IllegalArgumentException {
         if (fps < 0) throw new IllegalArgumentException("FPS must be a positive number");
 
         this.fps = fps;
-        this.gameObjects = gameObjects;
+        this.GNPObjects = GNPObjects;
     }
 
     public void init() {
@@ -58,7 +58,7 @@ public class GraphicsEngine extends Thread{
 
         BufferedImage surface = new BufferedImage(camera.getDimensions().x, camera.getDimensions().y, BufferedImage.TYPE_INT_ARGB);
 
-        gameObjects.forEach(gameObject -> {
+        GNPObjects.forEach(gameObject -> {
             if(!gameObject.isHidden()) {
                 gameObject.updateMesh();
                 surface.getGraphics().drawImage(

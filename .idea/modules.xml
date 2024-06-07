@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/JavaEngine.iml" filepath="$PROJECT_DIR$/JavaEngine.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GNPEngine.iml" filepath="$PROJECT_DIR$/GNPEngine.iml" />
     </modules>
   </component>
 </project>

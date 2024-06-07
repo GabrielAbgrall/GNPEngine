@@ -1,4 +1,4 @@
-package fr.gabrielabgrall.gameengine.utils;
+package fr.gabrielabgrall.gnpengine.utils;
 
 public class Clock {
 

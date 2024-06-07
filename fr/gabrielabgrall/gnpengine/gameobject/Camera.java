@@ -1,8 +1,8 @@
-package fr.gabrielabgrall.gameengine.gameobject;
+package fr.gabrielabgrall.gnpengine.gameobject;
 
-import fr.gabrielabgrall.gameengine.utils.Vector2;
+import fr.gabrielabgrall.gnpengine.utils.Vector2;
 
-public class Camera extends GameObject {
+public class Camera extends GNPObject {
 
     protected Vector2 dimensions;
     protected boolean resized = true;
