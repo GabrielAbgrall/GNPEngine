@@ -1,4 +1,4 @@
-package fr.gabrielabgrall.gnpengine.gameobject;
+package fr.gabrielabgrall.gnpengine.gnpobjects;
 
 import fr.gabrielabgrall.gnpengine.utils.Vector2;
 

@@ -16,19 +16,19 @@ public class Clock {
 
     public void tick(double frequency) {
         clockStart = System.currentTimeMillis();
-
+        if (clockEnd==0) clockEnd = clockStart;
         long sleepDuration = (long) (1000/frequency) - (clockStart-clockEnd);
+        clockEnd = clockStart + sleepDuration;
 
         try {
-            Thread.sleep(sleepDuration);
-        } catch (Exception ignored) {
+            if(sleepDuration > 0) Thread.sleep(sleepDuration);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
         }
 
         clockCount++;
         if(lastMean==0) lastMean = clockStart;
         if((clockStart - lastMean) > 1000) Debug.log(this.name + " | Clock rate : " + getMeanRate() + "/s");
-
-        clockEnd = System.currentTimeMillis();
     }
 
     public int getMeanRate() {

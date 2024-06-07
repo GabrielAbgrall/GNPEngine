@@ -1,8 +1,8 @@
 package fr.gabrielabgrall.gnpengine.demo.gameoflife;
 
 import fr.gabrielabgrall.gnpengine.GNPEngine;
-import fr.gabrielabgrall.gnpengine.gameobject.Camera;
-import fr.gabrielabgrall.gnpengine.gameobject.GNPObject;
+import fr.gabrielabgrall.gnpengine.gnpobjects.Camera;
+import fr.gabrielabgrall.gnpengine.gnpobjects.GNPObject;
 import fr.gabrielabgrall.gnpengine.utils.Debug;
 import fr.gabrielabgrall.gnpengine.utils.Vector2;
 
@@ -79,7 +79,7 @@ public class GameOfLife extends GNPObject {
         });
     }
 
-    public static void main(String[] args) throws IllegalArgumentException, InterruptedException {
+    public static void main(String[] args) throws IllegalArgumentException {
         Debug.log("Main | Starting");
         Debug.setLevel(1);
 
@@ -94,8 +94,8 @@ public class GameOfLife extends GNPObject {
         ));
 
         GameOfLife gameOfLife = new GameOfLife(
-                new Vector2(10, 10),
-                10,
+                new Vector2(250, 250),
+                4,
                 50
         );
 

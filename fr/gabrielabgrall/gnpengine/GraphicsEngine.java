@@ -2,8 +2,8 @@ package fr.gabrielabgrall.gnpengine;
 
 import fr.gabrielabgrall.gnpengine.utils.Clock;
 import fr.gabrielabgrall.gnpengine.utils.Vector2;
-import fr.gabrielabgrall.gnpengine.gameobject.Camera;
-import fr.gabrielabgrall.gnpengine.gameobject.GNPObject;
+import fr.gabrielabgrall.gnpengine.gnpobjects.Camera;
+import fr.gabrielabgrall.gnpengine.gnpobjects.GNPObject;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,7 +16,6 @@ public class GraphicsEngine extends Thread{
 
     public static GraphicsEngine instance;
     protected boolean initialized = false;
-    protected boolean running = true;
     protected double fps;
     protected Camera camera;
     protected JFrame frame = new JFrame();
@@ -33,7 +32,7 @@ public class GraphicsEngine extends Thread{
     public void init() {
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         frame.add(controller);
-        frame.setUndecorated(true);
+        frame.setUndecorated(false);
 
         frame.setVisible(true);
 
@@ -47,7 +46,7 @@ public class GraphicsEngine extends Thread{
         init();
         Clock clock = new Clock("GraphicsEngine");
 
-        while(running) {
+        while(!interrupted()) {
             display();
             clock.tick(fps);
         }

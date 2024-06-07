@@ -1,13 +1,12 @@
 package fr.gabrielabgrall.gnpengine;
 
-import fr.gabrielabgrall.gnpengine.gameobject.GNPObject;
+import fr.gabrielabgrall.gnpengine.gnpobjects.GNPObject;
 import fr.gabrielabgrall.gnpengine.utils.Clock;
 
 import java.util.List;
 
 public class PhysicsEngine extends Thread {
 
-    protected boolean running = true;
     protected double ups;
     protected long elapsed;
     private final List<GNPObject> GNPObjects;
@@ -22,7 +21,7 @@ public class PhysicsEngine extends Thread {
     @Override
     public void run() {
         Clock clock = new Clock("PhysicsEngine");
-        while(running) {
+        while(!interrupted()) {
             update();
             clock.tick(ups);
         }

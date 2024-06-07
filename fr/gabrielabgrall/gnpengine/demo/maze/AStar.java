@@ -1,6 +1,6 @@
 package fr.gabrielabgrall.gnpengine.demo.maze;
 
-import fr.gabrielabgrall.gnpengine.gameobject.GNPObject;
+import fr.gabrielabgrall.gnpengine.gnpobjects.GNPObject;
 import fr.gabrielabgrall.gnpengine.utils.Debug;
 import fr.gabrielabgrall.gnpengine.utils.Vector2;
 

@@ -1,6 +1,6 @@
 package fr.gabrielabgrall.gnpengine;
 
-import fr.gabrielabgrall.gnpengine.gameobject.GNPObject;
+import fr.gabrielabgrall.gnpengine.gnpobjects.GNPObject;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -24,8 +24,8 @@ public class GNPEngine {
     }
 
     public void stop() {
-        graphicsEngine.running = false;
-        physicsEngine.running = false;
+        graphicsEngine.interrupt();
+        physicsEngine.interrupt();
     }
 
     public void addGameObject(GNPObject GNPObject) {
