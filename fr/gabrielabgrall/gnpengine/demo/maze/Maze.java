@@ -177,7 +177,7 @@ public class Maze extends GNPObject {
         }
     }
 
-    public static void main(String[] args) throws IllegalArgumentException, InterruptedException {
+    public static void main(String[] args) throws IllegalArgumentException {
         Debug.log("Main | Starting");
         Debug.setLevel(1);
 
