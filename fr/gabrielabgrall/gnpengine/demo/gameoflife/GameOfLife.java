@@ -106,14 +106,6 @@ public class GameOfLife extends GNPObject {
         engine.start();
 
         Debug.log("Main | Done");
-
-        try {
-            Thread.sleep(5000);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
-
-        engine.stop();
     }
 
     protected static class Cell {
