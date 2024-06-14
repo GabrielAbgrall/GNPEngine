@@ -11,6 +11,9 @@ import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicLong;
 
+/**
+ * La classe AStar permet la résolution d'un labyrinthe. Cet algorythme recherche le chemin le plus court entre deux points. 
+ */
 public class AStar extends GNPObject {
 
     static class Node {

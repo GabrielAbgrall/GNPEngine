@@ -12,6 +12,15 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
+/**
+ * GameOfLife est une simulation crée par le Mathématicien John Conway. Il s'agit d'un automate cellulaire composé de règles simples, donc une simulation donnant l'impression de celleules vivantes intéragissant et se déplaçant dans le plan.
+ * 
+ * Les règles sont les suivantes :
+ * - Une cellule en vie (blanche ici) reste en vie si elle a 2 ou 3 voisins en vie, sinon elle passe à l'état mort
+ * - Une cellule morte revient à la vie si elle a précisément 3 cellules voisines en vie
+ * 
+ * Les voisins sont les 8 cellules autour de la celulle courante.
+ */
 public class GameOfLife extends GNPObject {
 
     protected final Vector2 gridSize;

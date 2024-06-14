@@ -4,6 +4,12 @@ import fr.gabrielabgrall.gnpengine.utils.Vector2;
 
 import java.awt.*;
 
+/**
+ * GNPObject est l'objet de base gérée par le GNPEngine.
+ * 
+ * La création de nouvelles classes filles en redéfinissant les méthodes update et updateMesh permettent de créer le comportement des objets.
+ * Il doit être renseigné dans le GNPEngine via sa méthode addGNPObject.
+ */
 public class GNPObject {
 
     protected Vector2 position;

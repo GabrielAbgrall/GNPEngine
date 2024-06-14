@@ -12,6 +12,13 @@ import java.util.*;
 import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
+/**
+ * La classe Maze est une démonstration du GNPEngine. 
+ * 
+ * Son fonctionnement se déroule en deux étapes :
+ * - Génération aléatoire du labyrinthe
+ * - Résolution du labyrinthe (point de départ: haut-droit, arrivée: bas-droit)
+ */
 public class Maze extends GNPObject {
 
     public static class Node{

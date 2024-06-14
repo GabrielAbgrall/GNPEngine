@@ -3,6 +3,9 @@ package fr.gabrielabgrall.gnpengine.utils;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Debug est une classe permettant la mise en forme des messages de Debug du GNPEngine.
+ */
 public class Debug {
 
     private static int level;

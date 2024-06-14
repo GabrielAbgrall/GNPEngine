@@ -12,6 +12,19 @@ import java.awt.event.MouseMotionListener;
 import java.awt.image.BufferedImage;
 import java.util.List;
 
+/**
+ * Le moteur graphique gère la boucle dans laquelle se déroulent les calculs graphiques (mise à jour des mesh de chaque GNPObject et mise à jour de la surface principale).
+ * 
+ * A chaque étape de la boucle, le moteur graphique :
+ * - Crée une nouvelle surface
+ * - Pour chaque GNPObject (de la liste du GNP Engine)
+ *   - appelle sa fonction updateMesh()
+ *   - affiche son mesh sur la surface()
+ * - Met à jour la surface dans le Controller
+ * - Appelle la fonction repaint() du Controller
+ * 
+ * La boucle principale se trouve dans la fonction run(), et s'arrête si le thread est interrompu.
+ */
 public class GraphicsEngine extends Thread{
 
     protected boolean initialized = false;
@@ -90,6 +103,11 @@ public class GraphicsEngine extends Thread{
         this.camera = camera;
     }
 
+    /**
+     * Le Controller est une classe fille de JPanel et est le composant sur lequel est painte l'image.
+     * 
+     * De plus, il implémente MouseMotionListener qui permet de déplacer l'entiereté de l'image dans la fenêtre JFrame.
+     */
     public static class Controller extends JPanel implements MouseMotionListener {
 
         private BufferedImage surface;

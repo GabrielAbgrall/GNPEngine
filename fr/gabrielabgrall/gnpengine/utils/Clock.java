@@ -1,5 +1,8 @@
 package fr.gabrielabgrall.gnpengine.utils;
 
+/**
+ * Clock est une classe utilitaire permettant la gestion du temps de sommeil dans les boucles d'affichage et de calculs physiques, pour maintenir un écart constant entre chaque itération des deux boucles principales.
+ */
 public class Clock {
 
     protected String name;

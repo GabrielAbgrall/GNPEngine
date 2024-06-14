@@ -6,6 +6,11 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * Le GNPEngine est la classe principale du fonctionnement du moteur. Il démarre et arrête les deux sous-moteurs (graphics engine et physics engine).
+ * 
+ * C'est dans cette classe que sont stockés les GNPObjects utilisés par le moteur graphique et le moteur physique.
+ */
 public class GNPEngine {
 
     protected final List<GNPObject> GNPObjects = new ArrayList<>();

@@ -2,6 +2,9 @@ package fr.gabrielabgrall.gnpengine.utils;
 
 import java.util.Objects;
 
+/**
+ * Vector2 est une classe utilitaire pour effectuer des calculs de position et de déplacement pour le GNPEngine.
+ */
 public class Vector2 {
 
     public int x, y;

@@ -5,6 +5,13 @@ import fr.gabrielabgrall.gnpengine.utils.Clock;
 
 import java.util.List;
 
+/**
+ * Le moteur physique gère la boucle dans laquelle se déroulent les calculs physiques (déplacements, changements d'états).
+ * 
+ * A chaque étape de la boucle, le moteur physique appelle pour chaque GNPObject (de la liste du GNP Engine) sa fonction update().
+ * 
+ * La boucle principale se trouve dans la fonction run(), et s'arrête si le thread est interrompu.
+ */
 public class PhysicsEngine extends Thread {
 
     protected double ups;
