@@ -201,7 +201,7 @@ public class Maze extends GNPObject {
                 new Vector2(width, height)
         ));
 
-        Maze maze = new Maze(size, 2);
+        Maze maze = new Maze(size, 1);
         AStar aStar = new AStar(maze);
 
         engine.addGameObject(maze);
